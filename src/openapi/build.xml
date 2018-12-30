@@ -1,0 +1,13 @@
+<project name="buildOpenApiArtifacts" default="buildArtifacts">
+    <target name="buildArtifacts">
+        <java jar="swagger-codegen-cli-2.3.1.jar">
+            <arg value="generate" />
+            <arg value="--api-package" />
+            <arg value="com.hcl.example.itTicket" />
+            <arg value="--artifact-id" />
+            <arg value="iticket-heatmap" />
+            <arg value="--input-spec" />
+            <arg value="swagger.yaml" />
+        </java>
+    </target>
+</project>
