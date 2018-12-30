@@ -1,6 +1,6 @@
 <project name="buildOpenApiArtifacts" default="buildArtifacts">
     <target name="buildArtifacts">
-        <java jar="swagger-codegen-cli-2.3.1.jar">
+        <java jar="swagger-codegen-cli-2.3.1.jar" fork="true">
             <arg value="generate" />
             <arg value="--api-package" />
             <arg value="com.hcl.example.itTicket" />
