@@ -11,7 +11,7 @@
             <arg value="--invoker-package" />
             <arg value="com.hcl.example.invoker" />
             <arg value="--lang" />
-            <arg value="java" />
+            <arg value="javascript" />
             <arg value="--model-package" />
             <arg value="com.hcl.example.model"/>
             <arg value="--output" />
