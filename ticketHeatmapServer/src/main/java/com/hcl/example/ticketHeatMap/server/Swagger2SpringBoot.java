@@ -1,4 +1,4 @@
-package io.swagger;
+package com.hcl.example.ticketHeatMap.server;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.ExitCodeGenerator;
@@ -10,7 +10,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
-@ComponentScan(basePackages = { "io.swagger", "io.swagger.api" , "io.swagger.configuration"})
+@ComponentScan(basePackages = { "com.hcl.example.ticketHeatMap.server", "com.hcl.example.ticketHeatMap.server.api" ,
+        "com.hcl.example.ticketHeatMap.server.configuration"})
 public class Swagger2SpringBoot implements CommandLineRunner {
 
     @Override

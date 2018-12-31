@@ -1,4 +1,4 @@
-package io.swagger.api;
+package com.hcl.example.ticketHeatMap.server.api;
 
 import java.io.IOException;
 
