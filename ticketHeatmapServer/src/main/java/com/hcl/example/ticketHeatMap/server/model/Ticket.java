@@ -11,8 +11,6 @@ import javax.validation.constraints.*;
  * Ticket
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-12-30T19:37:21.031Z")
-
 public class Ticket   {
   @JsonProperty("id")
   private String id = null;
@@ -56,7 +54,7 @@ public class Ticket   {
    * Get status
    * @return status
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true)
   @NotNull
 
   @Valid
@@ -78,7 +76,7 @@ public class Ticket   {
    * Get location
    * @return location
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true)
   @NotNull
 
   @Valid
@@ -102,7 +100,7 @@ public class Ticket   {
    * maximum: 100
    * @return urgency
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty()
 
 @Min(1) @Max(100) 
   public Integer getUrgency() {
@@ -136,15 +134,12 @@ public class Ticket   {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Ticket {\n");
-    
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    location: ").append(toIndentedString(location)).append("\n");
-    sb.append("    urgency: ").append(toIndentedString(urgency)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    return "class Ticket {\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    status: " + toIndentedString(status) + "\n" +
+            "    location: " + toIndentedString(location) + "\n" +
+            "    urgency: " + toIndentedString(urgency) + "\n" +
+            "}";
   }
 
   /**
