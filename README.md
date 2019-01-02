@@ -56,3 +56,26 @@ http://127.0.0.1:8080/v1
 ```
 
 ## openapi
+The `openapi` directory contains an ant script named `build.xml`. Running 
+this script
+* Starts the service.
+* Get's the service's open API spec from the service's `api-docs` endpoint.
+* Stores the open API spec in a file named `swagger.yaml`.
+* Generates JavaScript client code from the open API spec in a directory named
+`output`.
+* Shuts down the service that it started.
+
+The `swagger.yaml` file and the `output` directory are included in the source 
+code repository. Because they are generated, they would not be included in a 
+resository intended for production. But since this is an example, they are 
+included to make easy to see everything without having to clone the repo and 
+build the service.
+
+The ant script is easily modified to generate additional types of client code.
+The code generation tool that it uses supports many options including:
+* Java for Android
+* Objective C
+* C#
+* JavaScript for node.js
+* JavaScript for Angular
+* JMeter
