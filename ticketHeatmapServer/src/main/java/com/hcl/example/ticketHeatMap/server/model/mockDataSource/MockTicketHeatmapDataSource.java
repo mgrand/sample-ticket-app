@@ -1,5 +1,6 @@
 package com.hcl.example.ticketHeatMap.server.model.mockDataSource;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hcl.example.ticketHeatMap.server.model.Ticket;
 import com.hcl.example.ticketHeatMap.server.model.TicketHeatmapSource;
@@ -14,7 +15,7 @@ import java.util.stream.Collectors;
 public class MockTicketHeatmapDataSource implements TicketHeatmapSource {
     private static final Logger log = LoggerFactory.getLogger(MockTicketHeatmapDataSource.class);
 
-    private static final String TEST_DATA_FILE = "testData.json";
+    private static final String TEST_DATA_FILE = "/testData.json";
 
     private List<Ticket> tickets;
 
@@ -25,7 +26,7 @@ public class MockTicketHeatmapDataSource implements TicketHeatmapSource {
         String jsonString = readDataAsString();
         try {
             //noinspection unchecked
-            tickets = objectMapper.readValue(jsonString, List.class);
+            tickets = objectMapper.readValue(jsonString, new TypeReference<List<Ticket>>(){});
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }

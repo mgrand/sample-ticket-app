@@ -1,12 +1,10 @@
 package com.hcl.example.ticketHeatMap.server.api;
 
-import java.io.IOException;
-
 import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-12-30T19:37:21.031Z")
-
+@SuppressWarnings("unused")
 public class ApiOriginFilter implements javax.servlet.Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response,
@@ -22,6 +20,7 @@ public class ApiOriginFilter implements javax.servlet.Filter {
     public void destroy() {
     }
 
+    @SuppressWarnings("RedundantThrows")
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
     }
