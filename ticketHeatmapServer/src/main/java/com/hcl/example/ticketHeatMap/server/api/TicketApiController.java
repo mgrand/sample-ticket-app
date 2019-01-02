@@ -35,7 +35,7 @@ public class TicketApiController implements TicketApi {
     public ResponseEntity<List<Ticket>> getTicketsForHeatmap(@ApiParam(value = "identify the regions to be returned", required = true) @RequestParam(value = "regions", required = true) List<String> regions,
                                                              @ApiParam(value = "Ticket statuses to include.", allowableValues = "any, closed, open", defaultValue = "any") @Valid @RequestParam(value = "status", required = false, defaultValue = "any") String status) {
         String accept = request.getHeader("Accept");
-        if (accept != null && (accept.contains("application/json") || accept.equals("*/*"))) {
+        if (accept == null || accept.contains("application/json") || accept.equals("*/*")) {
             log.info("Serving regions {}; status = {}", regions, status);
             List<Ticket> tickets = ticketSource.getTickets(regions, "any".equalsIgnoreCase(status)?null:status);
             log.info("Returning {} tickets.", tickets.size());
