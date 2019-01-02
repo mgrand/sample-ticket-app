@@ -54,7 +54,7 @@ public class MockTicketHeatmapDataSource implements TicketHeatmapSource {
     }
 
     private boolean filterPredicate(Ticket ticket, List<String> regions, String status) {
-        return (status == null || status.equals(ticket.getStatus().name())) && regions.contains(ticket.getRegion());
+        return (status == null || status.equalsIgnoreCase(ticket.getStatus().name())) && regions.contains(ticket.getRegion());
     }
 
     @Override
