@@ -30,6 +30,8 @@
     <target name="buildArtifacts" depends="startService,renameSwaggerToBackup" unless="service.timedOut">
         <get src="${apidocs.url}" dest="${swagger.yaml}" httpusecaches="false"/>
 
+        <delete dir="output" failonerror="false"/>
+
         <java jar="swagger-codegen-cli-2.3.1.jar" fork="true">
             <arg value="generate" />
             <arg value="--api-package" />
