@@ -37,7 +37,7 @@ public class TicketApiController implements TicketApi {
         String accept = request.getHeader("Accept");
         if (accept != null && (accept.contains("application/json") || accept.equals("*/*"))) {
             log.info("Serving regions {}; status = {}", regions, status);
-            List<Ticket> tickets = ticketSource.getTickets(regions, status);
+            List<Ticket> tickets = ticketSource.getTickets(regions, "any".equalsIgnoreCase(status)?null:status);
             log.info("Returning {} tickets.", tickets.size());
             return new ResponseEntity<>(tickets, HttpStatus.OK);
         }
