@@ -10,10 +10,14 @@ import javax.validation.constraints.*;
 /**
  * Ticket
  */
+@SuppressWarnings("unused")
 @Validated
 public class Ticket   {
   @JsonProperty("id")
   private String id = null;
+
+  @JsonProperty("region")
+  private String region = null;
 
   @JsonProperty("status")
   private Status status = null;
@@ -67,10 +71,25 @@ public class Ticket   {
     this.status = status;
   }
 
+
+  public Ticket region(String region) {
+    this.region = region;
+    return this;
+  }
+
+  @ApiModelProperty(required = true)
+  @NotNull
+  @Valid
+  public String getRegion() {return region;}
+
+  public void setRegion(String region) {this.region = region;}
+
+
   public Ticket location(Geocode location) {
     this.location = location;
     return this;
   }
+
 
   /**
    * Get location
