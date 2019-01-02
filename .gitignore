@@ -1,5 +1,7 @@
 .idea
 output
 target
+build.number
+swagger.yaml.*
 *.
 *~
