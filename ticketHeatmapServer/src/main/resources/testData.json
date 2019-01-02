@@ -1,8 +1,72 @@
-[ {  "urgency" : 15,
-     "location" : {  "latitude" : -75.5850925717018, "longitude" : 36.988422590534526  },
-     "id" : "23455678",
-     "status" : "open"},
-  {  "urgency" : 15,
-      "location" : { "latitude" : -75.5850925717018, "longitude" : 36.988422590534526  },
-      "id" : "23455679",
-      "status" : "open"} ]
+[
+  {
+    "urgency": 15,
+    "location": {
+      "latitude": 34.0232,
+      "longitude": -84.3616
+    },
+    "id": "23455678",
+    "status": "open",
+    "region": "usa"
+  },
+  {
+    "urgency": 15,
+    "location": {
+      "latitude": 34.0408,
+      "longitude": -84.1665
+    },
+    "id": "23455679",
+    "status": "open",
+    "region": "usa"
+  },
+  {
+    "urgency": 20,
+    "location": {
+      "latitude": 	34.2037,
+      "longitude": 	-84.1031
+    },
+    "id": "23455683",
+    "status": "open",
+    "region": "usa"
+  },
+  {
+    "urgency": 20,
+    "location": {
+      "latitude": 33.8545,
+      "longitude": -84.2171
+    },
+    "id": "23455686",
+    "status": "open",
+    "region": "usa"
+  },
+  {
+    "urgency": 20,
+    "location": {
+      "latitude": 33.7804,
+      "longitude": -84.3360
+    },
+    "id": "23455687",
+    "status": "open",
+    "region": "usa"
+  },
+  {
+    "urgency": 20,
+    "location": {
+      "latitude": 33.7952,
+      "longitude": -84.3248
+    },
+    "id": "23455690",
+    "status": "closed",
+    "region": "usa"
+  },
+  {
+    "urgency": 20,
+    "location": {
+      "latitude": 33.8007,
+      "longitude": -84.331
+    },
+    "id": "23455693",
+    "status": "closed",
+    "region": "usa"
+  }
+]
