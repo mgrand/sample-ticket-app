@@ -15,7 +15,12 @@ import java.util.List;
 public interface TicketApi {
 
     @SuppressWarnings("DefaultAnnotationParam")
-    @ApiOperation(value = "Get summary ticket information", nickname = "getTicketsForHeatmap", notes = "Retrieve tickets with just fields useful for a heat map.", response = Ticket.class, responseContainer = "List", tags={ "itTicket", })
+    @ApiOperation(value = "Get summary ticket information",
+            nickname = "getTicketsForHeatmap",
+            notes = "Retrieve tickets with just fields useful for a heat map.",
+            response = Ticket.class,
+            responseContainer = "List",
+            tags={ "itTicket", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "successful operation", response = Ticket.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid status value") })

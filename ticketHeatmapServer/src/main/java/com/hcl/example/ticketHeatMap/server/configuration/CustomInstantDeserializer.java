@@ -28,7 +28,8 @@ import java.math.BigDecimal;
  *
  * @author Nick Williams
  */
-public class CustomInstantDeserializer<T extends Temporal>
+@SuppressWarnings("WeakerAccess")
+class CustomInstantDeserializer<T extends Temporal>
     extends ThreeTenDateTimeDeserializerBase<T> {
   private static final long serialVersionUID = 1L;
 
