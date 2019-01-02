@@ -5,11 +5,11 @@ import com.hcl.example.ticketHeatMap.server.model.Ticket;
 import com.hcl.example.ticketHeatMap.server.model.TicketHeatmapSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MockTicketHeatmapDataSource implements TicketHeatmapSource {
     private static final Logger log = LoggerFactory.getLogger(MockTicketHeatmapDataSource.class);
@@ -52,9 +52,12 @@ public class MockTicketHeatmapDataSource implements TicketHeatmapSource {
         return fin;
     }
 
+    private boolean filterPredicate(Ticket ticket, List<String> regions, String status) {
+        return (status == null || status.equals(ticket.getStatus().name())) && regions.contains(ticket.getRegion());
+    }
+
     @Override
     public List<Ticket> getTickets(List<String> regions, String status) {
-        // TODO finish this;
-        throw new NotImplementedException();
+        return tickets.stream().filter((t)->filterPredicate(t,regions,status)).collect(Collectors.toList());
     }
 }
