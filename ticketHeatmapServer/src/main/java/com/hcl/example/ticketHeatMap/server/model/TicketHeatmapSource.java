@@ -13,7 +13,7 @@ public interface TicketHeatmapSource {
      *                If this is an empty list, no tickets are returned.
      * @param status Only tickets whose status matches this value will be returned. If this parameter is null, then
      *               there is no filtering by status.
-     * @return A list of the tickets that match the paremeters.
+     * @return A list of the tickets that match the parameters.
      */
     List<Ticket> getTickets(List<String> regions, String status);
 }
