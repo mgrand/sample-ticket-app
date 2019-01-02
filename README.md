@@ -11,13 +11,48 @@ directory is described in greater detail below under the heading
 **ticketHeatmapServer**.
 
 The `openapi` directory contains the openapi specification that describes the 
-service. The specification is in the file `swagger.yaml`. The service was 
-originally generated from `swagger.yaml`.  This directory is described in greater 
+service. The specification is in the file `swagger.yaml`. This can be used to 
+generate client code.  This directory is described in greater 
 detail below under the heading **openapi**. 
 
 ## ticketHeatmapServer
-The service was originally generated from the `swagger.yaml` in the `openapi`
-directory. 
+The main class of the service is
+`com.hcl.example.ticketHeatMap.server.Swagger2SpringBoot`. The service serves 
+tickest from a static data file: `src/main/resources/testDate.json`.
 
+There is a unit test of the service at
+`src/test/java/com/hcl/example/ticketHeatMap/server/api/TicketApiControllerTest.java`.
+
+Building the service
+requires that Java 8 or higher and maven are already installed. To build the 
+service, issue the commands
+```
+cd ticketHeatmapServer
+mvn clean install
+```
+
+After the service is built, you can run it locally with the command
+```
+java -jar target\ticket-heatmap-server-1.0.0.jar
+```
+
+Some queries that you can used to exercise the service from a browser are
+```
+http://127.0.0.1:8080/v1/ticket/heatmap?regions=usa&status=any
+http://127.0.0.1:8080/v1/ticket/heatmap?regions=usa&status=closed
+http://127.0.0.1:8080/v1/ticket/heatmap?regions=europe&status=closed
+```
+
+
+The service has an endpoint that can be used to get an updated openapi
+specification of the `ticket/heatmap` API. The URL for this is 
+```
+http://127.0.0.1:8080/v1/api-docs
+```
+
+There is also interactive documentation at
+```
+http://127.0.0.1:8080/v1
+```
 
 ## openapi
