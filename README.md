@@ -16,6 +16,8 @@ originally generated from `swagger.yaml`.  This directory is described in greate
 detail below under the heading **openapi**. 
 
 ## ticketHeatmapServer
+The service was originally generated from the `swagger.yaml` in the `openapi`
+directory. 
 
 
 ## openapi
