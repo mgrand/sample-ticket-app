@@ -1,5 +1,35 @@
 <project name="buildOpenApiArtifacts" default="buildArtifacts">
-    <target name="buildArtifacts">
+    <property name="apidocs.url" value="http://localhost:8080/v1/api-docs" />
+    <property name="jarPath" location="../ticketHeatmapServer/target/ticket-heatmap-server-1.0.0.jar"/>
+    <property name="swagger.yaml" location="swagger.yaml" />
+
+    <target name="init">
+        <available file="${jarPath}" type="file" property="jarExists"/>
+        <available file="${swagger.yaml}" type="file" property="swaggerExists" />
+    </target>
+
+    <target name="failIfJarDoesntExist" depends="init">
+        <fail unless="jarExists" message=""/>
+    </target>
+
+    <target name="startService" depends="failIfJarDoesntExist">
+        <echo message="Starting service."/>
+        <java jar="${jarPath}" fork="true"/>
+
+        <echo message="Waiting for server to start"/>
+        <waitfor maxwait="10" maxwaitunit="second" timeoutproperty="service.timedOut">
+            <http url="${apidocs.url}"/>
+        </waitfor>
+    </target>
+
+    <target name="renameSwaggerToBackup" depends="init" if="swaggerExists">
+        <buildnumber/>
+        <move file="${swagger.yaml}" tofile="${swagger.yaml}.${build.number}" preservelastmodified="true"/>
+    </target>
+
+    <target name="buildArtifacts" depends="startService,renameSwaggerToBackup" unless="service.timedOut">
+        <get src="${apidocs.url}" dest="${swagger.yaml}" httpusecaches="false"/>
+
         <java jar="swagger-codegen-cli-2.3.1.jar" fork="true">
             <arg value="generate" />
             <arg value="--api-package" />
@@ -7,7 +37,7 @@
             <arg value="--artifact-id" />
             <arg value="iticket-heatmap" />
             <arg value="--input-spec" />
-            <arg value="swagger.yaml" />
+            <arg value="${swagger.yaml}" />
             <arg value="--invoker-package" />
             <arg value="com.hcl.example.invoker" />
             <arg value="--lang" />
