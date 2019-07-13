@@ -1,4 +1,4 @@
-# Sample App for Aetting IT Tickets for A Heat Map.
+# Sample App for Getting IT Tickets for A Heat Map.
 This is just the skeleton of an app to get IT tickets from a service and display
 them as a geographic heat map. It includes the top-level logic for a service to
 get tickets for a particular geographic region. It also includes JavaScript code
